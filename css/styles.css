@@ -619,6 +619,20 @@ body {
 .footer-social {
   margin-top: 0.5rem;
   font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.footer-social a {
+  color: #ffffff;
+  font-size: 20px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: #d4a84e;
+  transform: translateY(-2px);
 }
 
 .footer-bottom {
