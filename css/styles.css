@@ -625,13 +625,22 @@ body {
 }
 
 .footer-social a {
-  color: #ffffff;
-  font-size: 20px;
-  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  color: #1f2937; /* ícono oscuro */
+  background: #ffffff; /* círculo blanco */
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
 
 .footer-social a:hover {
   color: #d4a84e;
+  background: #1f2937;
   transform: translateY(-2px);
 }
 
