@@ -466,6 +466,15 @@ body {
   font-weight: 500;
 }
 
+.why-image img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
 /* First-time buyers */
 
 .section-first-time {
