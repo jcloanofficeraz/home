@@ -22,6 +22,7 @@
 
   <link rel="alternate" hreflang="en" href="https://jcloanofficer.com/book-a-call.html">
   <link rel="alternate" hreflang="es" href="https://es.jcloanofficer.com/agendar-llamada.html">
+  <link rel="alternate" hreflang="x-default" href="https://es.jcloanofficer.com/book-a-call.html">
 
   <link rel="icon" href="/assets/icons/favicon.ico" sizes="any">
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
@@ -33,6 +34,9 @@
 
   <!-- Same shared stylesheet as the homepage — see the note at the end of this file's outputs -->
   <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Social Media Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
   <script type="application/ld+json">
   {
@@ -80,7 +84,7 @@
       <div class="header-actions">
         <div class="lang-switch" role="group" aria-label="Language">
           <a href="/" aria-current="true">EN</a>
-          <a href="https://es.jcloanofficer.com/">ES</a>
+          <a href="/es//">ES</a>
         </div>
         <a href="/book-a-call.html" class="btn btn-primary">Book a Call</a>
         <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
@@ -112,7 +116,7 @@
         </ul>
         <div class="mobile-lang">
           <a href="/" aria-current="true">English</a>
-          <a href="https://es.jcloanofficer.com/">Español</a>
+          <a href="/es//">Español</a>
         </div>
       </div>
     </nav>
@@ -149,13 +153,18 @@
             Do not add a fixed "height" in the data-url style attribute — height
             is controlled by js/booking.js so it can adapt on every device.
           -->
-          <div
+          <!-- Principio del widget integrado de Calendly -->
+          <div id="calendly-embed" class="calendly-inline-widget" data-url="https://calendly.com/johnny-calderon-efinitymortgage/book-call?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Final del widget integrado de Calendly -->
+          <!--<div
             class="calendly-inline-widget"
             id="calendly-embed"
             data-url="https://calendly.com/PLACEHOLDER-add-your-scheduling-link"
-          ></div>
+          ></div> 
 
           <p class="needs-info calendly-note">Add your Calendly link and embed snippet here — this widget is a placeholder until then.</p>
+          -->
         </div>
 
         <div class="booking-alt">
@@ -188,17 +197,81 @@
         <div class="footer-col">
           <h4>Contact</h4>
           <ul>
-            <li>Phone: <span class="needs-info">Add phone number</span></li>
-            <li>Email: <span class="needs-info">Add email address</span></li>
-            <li><a href="https://es.jcloanofficer.com/">Español</a></li>
+            <li>
+              Phone:
+              <a href="tel:+14807403626">480-740-3626</a>
+            </li>
+            <li>
+              Email:
+              <a href="mailto:johnny.calderon@efinitymortgage.com">
+                johnny.calderon@efinitymortgage.com
+              </a>
+            </li>
+            <li>
+              Calendly:
+              <a href="https://calendly.com/johnnym-calderon/consultation"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Schedule a consultation
+              </a>
+            </li>
+            <li>
+              <a href="/es/">Español</a>
+            </li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Follow</h4>
           <ul>
-            <li><span class="needs-info">Add Instagram URL</span></li>
-            <li><span class="needs-info">Add TikTok URL</span></li>
-            <li><span class="needs-info">Add Facebook URL</span></li>
+            <li>
+              <a href="https://instagram.com/jcloanofficer"
+                 aria-label="Instagram"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+                <span>Instagram</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://tiktok.com/@jcloanofficer"
+                 aria-label="TikTok"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+                <span>TikTok</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://facebook.com/jcloanofficer"
+                 aria-label="Facebook"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook-f"></i>
+                <span>Facebook</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://youtube.com/@jcloanofficer"
+                 aria-label="YouTube"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="fa-brands fa-youtube"></i>
+                <span>YouTube</span>
+              </a>
+            </li>
+            
+            <li>
+              <a href="https://linkedin.com/in/jcloanofficer"
+                 aria-label="LinkedIn"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin-in"></i>
+                <span>LinkedIn</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

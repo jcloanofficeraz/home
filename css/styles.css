@@ -569,3 +569,44 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
   border-radius: var(--radius-sm);
   padding: 0.15rem 0.5rem;
 }
+
+/* =========================================================
+   Book a Call page
+   ========================================================= */
+.booking-hero { padding-block: clamp(2rem, 5vw, 3.5rem) 0.5rem; }
+.booking-hero .lede { max-width: 60ch; }
+
+.booking-embed { padding-top: 0.5rem; }
+
+/* Outer frame: fixed visual chrome, no fixed height —
+   height is owned entirely by #calendly-embed below */
+.calendly-shell {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  padding: clamp(0.6rem, 2vw, 1.1rem);
+  overflow: hidden; /* belt-and-suspenders: never lets a rounding glitch show a scrollbar at the frame edge */
+}
+
+/* The div Calendly's script turns into an iframe.
+   width is fluid; height is set in px by js/booking.js from Calendly's
+   own "calendly.page_height" message, so the iframe never needs its
+   own internal scrollbar on mobile, tablet, or desktop. */
+.calendly-inline-widget {
+  width: 100%;
+  min-width: 280px;
+}
+
+.calendly-note { margin-top: 1rem; }
+
+.booking-alt {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.booking-alt p { color: var(--ink-soft); font-size: var(--step--1); }
