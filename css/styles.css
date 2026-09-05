@@ -644,6 +644,12 @@ body {
   transform: translateY(-2px);
 }
 
+.footer-social a,
+.footer-social a:hover,
+.footer-social a:visited {
+  text-decoration: none;
+}
+
 .footer-bottom {
   margin-top: 0.75rem;
 }
