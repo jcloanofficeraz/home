@@ -145,10 +145,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 .header-inner {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding-block: 0.9rem;
-  gap: 1rem;
+  gap: 0.65rem 1rem;
 }
 .logo {
   font-family: var(--font-display);
@@ -157,6 +158,7 @@ button { font-family: inherit; cursor: pointer; }
   text-decoration: none;
   color: var(--ink);
   white-space: nowrap;
+  order: 1;
 }
 .logo span { color: var(--accent); }
 
@@ -221,13 +223,15 @@ button { font-family: inherit; cursor: pointer; }
 
 .header-actions {
   display: flex;
-  /*align-items: center;*/
-  align-items: stretch;
+  align-items: center;
   gap: 0.75rem;
+  /* Mobile: row 2 of the header — full width, lang switch and CTA spread apart */
+  order: 3;
+  flex: 1 1 100%;
+  justify-content: space-between;
 }
 .lang-switch {
   display: flex;
-  flex-direction: column;
   align-items: center;
   font-size: var(--step--1);
   font-weight: 500;
@@ -254,6 +258,7 @@ button { font-family: inherit; cursor: pointer; }
   background: transparent;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  order: 2;
 }
 .menu-toggle span,
 .menu-toggle::before,
@@ -295,7 +300,9 @@ button { font-family: inherit; cursor: pointer; }
 .mobile-lang a { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.5rem 0.9rem; }
 
 @media (min-width: 900px) {
-  .primary-nav { display: block; }
+  .header-inner { flex-wrap: nowrap; }
+  .primary-nav { display: block; order: 2; }
+  .header-actions { order: 3; flex: 0 0 auto; justify-content: flex-end; }
   .menu-toggle, .mobile-nav { display: none; }
 }
 
@@ -357,6 +364,20 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
   border: 1px dashed var(--border-strong);
   margin: 10px;
   border-radius: var(--radius-sm);
+}
+
+/* Real photo containers (once a placeholder is replaced with an actual
+   <img>, per the [IMAGE PLACEHOLDER] naming in the README) */
+.image-placeholder {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+}
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 @media (min-width: 900px) {
@@ -440,6 +461,7 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
   align-items: center;
 }
 .split-media .placeholder-img { aspect-ratio: 5 / 4; margin: 0; }
+.split-media .image-placeholder { aspect-ratio: 5 / 4; }
 .split-media { border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--white); overflow: hidden; }
 .value-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
 .value-list li { display: flex; gap: 0.75rem; align-items: flex-start; color: var(--ink-soft); }
@@ -542,6 +564,12 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
 .footer-col a { text-decoration: none; color: var(--ink-soft); }
 .footer-col a:hover { color: var(--accent); }
+.footer-col a:has(i) {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footer-col a i { font-size: 0.95rem; width: 1em; text-align: center; }
 .footer-bottom {
   margin-top: 2.5rem;
   padding-top: 1.5rem;
