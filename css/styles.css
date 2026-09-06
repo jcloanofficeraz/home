@@ -259,6 +259,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   order: 2;
+  position: relative;
 }
 .menu-toggle span,
 .menu-toggle::before,
@@ -268,9 +269,20 @@ button { font-family: inherit; cursor: pointer; }
   width: 18px;
   height: 2px;
   background: var(--ink);
-  position: relative;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
-.menu-toggle { flex-direction: column; gap: 4px; }
+.menu-toggle::before { transform: translate(-50%, calc(-50% - 6px)); }
+.menu-toggle::after { transform: translate(-50%, calc(-50% + 6px)); }
+
+/* Open state: bars 1 and 3 rotate into an X, middle bar (the
+   visually-hidden "Menu" label, repurposed as the middle bar) fades out */
+.menu-toggle[aria-expanded="true"] span { opacity: 0; }
+.menu-toggle[aria-expanded="true"]::before { transform: translate(-50%, -50%) rotate(45deg); }
+.menu-toggle[aria-expanded="true"]::after { transform: translate(-50%, -50%) rotate(-45deg); }
 
 .mobile-nav {
   display: none;
@@ -525,6 +537,17 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
 }
 .about-panel .btn { margin-top: 1.75rem; }
 
+/* Credentials list on the About page (dl of label/value pairs) */
+.credentials-list {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.7rem 1.5rem;
+  max-width: 520px;
+}
+.credentials-list dt { font-weight: 600; color: var(--ink); }
+.credentials-list dd { margin: 0; color: var(--ink-soft); }
+
 /* ---------- Final CTA ---------- */
 .final-cta {
   background: var(--accent);
@@ -638,3 +661,64 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
   justify-content: space-between;
 }
 .booking-alt p { color: var(--ink-soft); font-size: var(--step--1); }
+
+/* =========================================================
+   Contact page (JotForm embed)
+   ========================================================= */
+/* Generic embed frame — same visual chrome as .calendly-shell,
+   reused here for the JotForm iframe instead of Calendly. */
+.embed-shell {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  padding: clamp(0.6rem, 2vw, 1.1rem);
+  overflow: hidden;
+}
+.embed-shell iframe {
+  width: 100%;
+  display: block;
+}
+
+/* =========================================================
+   Buying a Home page
+   ========================================================= */
+.info-grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 800px) {
+  .info-grid { grid-template-columns: 1fr 1fr; }
+}
+.info-block h3 { font-size: var(--step-2); }
+.info-block p { margin-top: 0.85rem; color: var(--ink-soft); }
+.info-block p + p { margin-top: 0.6rem; }
+
+.program-teaser-list {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.program-teaser-list a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: var(--step--1);
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.program-teaser-list a:hover { border-color: var(--accent); color: var(--accent); }
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+.faq-item {
+  border-top: 1px solid var(--border);
+  padding-top: 1.25rem;
+}
+.faq-item h3 { font-size: var(--step-1); }
+.faq-item p { margin-top: 0.6rem; color: var(--ink-soft); font-size: var(--step-0); }
