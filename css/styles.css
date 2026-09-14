@@ -166,7 +166,7 @@ button { font-family: inherit; cursor: pointer; }
 .primary-nav ul {
   display: flex;
   align-items: center;
-  gap: 1.9rem;
+  gap: clamp(0.9rem, 1.8vw, 1.9rem);
 }
 .primary-nav a {
   text-decoration: none;
@@ -175,6 +175,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ink-soft);
   padding: 0.4rem 0.1rem;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 .primary-nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 
@@ -191,6 +192,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--ink-soft);
   padding: 0.4rem 0.1rem;
   border-bottom: 2px solid transparent;
+  white-space: nowrap;
 }
 .dropdown-toggle:hover { color: var(--ink); border-bottom-color: var(--accent); }
 .dropdown-toggle svg { width: 11px; height: 11px; transition: transform 0.15s ease; }
@@ -765,3 +767,260 @@ section { padding-block: clamp(3rem, 7vw, 5.5rem); }
 .event-meta li { display: flex; gap: 0.5rem; align-items: flex-start; }
 .event-meta svg { flex-shrink: 0; width: 16px; height: 16px; margin-top: 2px; color: var(--ink-faint); }
 .event-card .btn { margin-top: 1.5rem; align-self: flex-start; }
+
+/* =========================================================
+   Comparison table (article pages, e.g. FHA vs. Conventional)
+   ========================================================= */
+.compare-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  min-width: 560px;
+}
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.compare-table thead th {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg-soft);
+}
+.compare-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  background: var(--white);
+}
+.compare-table tbody td { color: var(--ink-soft); }
+.compare-table tbody tr:last-child th,
+.compare-table tbody tr:last-child td { border-bottom: none; }
+
+/* =========================================================
+   Past events (expandable cards + gallery + lightbox)
+   ========================================================= */
+.past-events-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 800px) { .past-events-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* Card shell — built on <details>/<summary> so open/close needs no JS */
+details.event-card.past-event {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  overflow: hidden;
+}
+details.event-card.past-event summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem;
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+}
+details.event-card.past-event summary::-webkit-details-marker { display: none; }
+details.event-card.past-event summary::marker { content: ""; }
+
+.event-cover {
+  position: relative;
+  flex-shrink: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, var(--bg-soft), var(--white));
+  border: 1px dashed var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-faint);
+  overflow: hidden;
+}
+.event-cover svg { width: 26px; height: 26px; }
+.event-cover .cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.event-cover:has(.cover-img) {
+  border-style: solid;
+}
+.event-cover:has(.cover-img) svg { display: none; }
+
+.event-summary-text { flex: 1; min-width: 0; }
+.event-summary-text h3 { font-size: var(--step-0); margin-top: 0.35rem; }
+.event-summary-meta { margin-top: 0.3rem; color: var(--ink-soft); font-size: var(--step--1); }
+.gallery-count {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+.gallery-count svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.details-chevron {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--ink-faint);
+  transition: transform 0.15s ease;
+}
+details.event-card.past-event[open] .details-chevron { transform: rotate(180deg); }
+
+.event-card-body {
+  padding: 0 1.1rem 1.1rem;
+  border-top: 1px solid var(--border);
+  padding-top: 1.1rem;
+}
+
+/* Description clamp + "Read more" toggle */
+.event-description-text {
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.event-description-text.expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.read-more-toggle {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: var(--step--1);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Gallery thumbnails */
+.gallery-grid {
+  margin-top: 1.1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  gap: 0.6rem;
+}
+.gallery-thumb {
+  aspect-ratio: 1;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(160deg, var(--bg-soft), var(--white));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  color: var(--ink-faint);
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 0.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-thumb:hover { border-color: var(--accent); color: var(--accent); }
+.gallery-thumb .thumb-icon { width: 22px; height: 22px; }
+.gallery-thumb i.thumb-icon { font-size: 22px; width: auto; height: auto; }
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Once a placeholder is swapped for a real photo or a Drive thumbnail image */
+.gallery-thumb.has-thumb {
+  padding: 0;
+  border-style: solid;
+  background: var(--white);
+}
+.thumb-play-badge {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-play-badge svg { width: 30px; height: 30px; }
+
+.event-links {
+  margin-top: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.25rem;
+}
+.event-links a { font-size: var(--step--1); }
+
+/* Lightbox — one shared overlay per page */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  z-index: 300;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-content {
+  max-width: 900px;
+  width: 100%;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+}
+.lightbox-content img { width: 100%; height: auto; display: block; }
+.lightbox-content iframe { width: 100%; aspect-ratio: 16 / 9; border: none; display: block; }
+.lightbox-content .lightbox-placeholder {
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: var(--step--1);
+}
+.lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: var(--white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 301;
+}
+.lightbox-close svg { width: 18px; height: 18px; }
