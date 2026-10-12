@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Johnny Calderon//Seminario//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:seminario-20261021-jcloanofficer@jcloanofficer.com
+DTSTAMP:20261012T120000Z
+DTSTART:20261022T010000Z
+DTEND:20261022T020000Z
+SUMMARY:Deja de Rentar y Empieza a Comprar Casa
+DESCRIPTION:Seminario gratuito con Johnny Calderón.\nEnlace de Zoom: https://us06web.zoom.us/j/88202491343?pwd=PEQP1R1lMssVdMRopsHZ1eQTklcaT0.1
+LOCATION:https://us06web.zoom.us/j/88202491343?pwd=PEQP1R1lMssVdMRopsHZ1eQTklcaT0.1
+URL:https://us06web.zoom.us/j/88202491343?pwd=PEQP1R1lMssVdMRopsHZ1eQTklcaT0.1
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:El seminario empieza en 1 hora
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:El seminario empieza en 10 minutos
+END:VALARM
+END:VEVENT
+END:VCALENDAR
