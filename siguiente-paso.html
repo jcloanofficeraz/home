@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZJPE3SLDEQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-ZJPE3SLDEQ');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Agenda una llamada de 15 minutos con Johnny Calderón, loan officer en Efinity Mortgage, y descubre cuánta casa puedes comprar.">
+<title>Tu Siguiente Paso | Johnny Calderón</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Layout: minimalista, una columna enfocada en la acción. Mucho blanco, un solo acento (vino), líneas finas en vez de sombras. */
+:root{
+  --bg:#FFFFFF;
+  --subtle:#F6F4F3;
+  --ink:#1F1B1C;
+  --muted:#645B5D;
+  --line:#E8E3E2;
+  --accent:#7A1F33;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#F6EAED;
+  --wa:#1F8A55;
+  --font-display:"Geist", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --font-body:"Geist", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --r:10px;
+  color-scheme:light;
+}
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:17px;line-height:1.6;margin:0;-webkit-font-smoothing:antialiased}
+body.en [lang="es"], body:not(.en) [lang="en"]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;line-height:1.12;margin:0;letter-spacing:-.02em}
+p{margin:0}
+
+/* Top bar */
+.top{background:var(--bg);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:16px;flex-wrap:wrap}
+.brand{display:flex;flex-direction:column;line-height:1.25}
+.brand b{font-weight:600;font-size:1.05rem;letter-spacing:-.01em}
+.brand small{color:var(--muted);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.lang{display:inline-flex;gap:2px}
+.lang button{background:none;border:0;color:var(--muted);font:500 .82rem var(--font-body);padding:6px 10px;border-radius:6px;cursor:pointer;letter-spacing:.04em}
+.lang button[aria-pressed="true"]{color:var(--ink);background:var(--subtle);font-weight:600}
+
+/* Hero */
+.hero{background:var(--bg);padding-block:44px 64px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 1fr;grid-template-areas:"text video" "actions video";column-gap:48px;row-gap:0;align-items:center}
+.hero-grid > *{min-width:0}
+.hero-text{grid-area:text;align-self:end}
+.hero-actions{grid-area:actions;align-self:start}
+.hero-video{grid-area:video}
+.ok{display:inline-flex;align-items:center;gap:8px;color:var(--accent);font-weight:500;font-size:.85rem}
+.ok svg{flex:none}
+.hero h1{font-size:clamp(2rem,4.4vw,3.1rem);font-weight:600;margin-top:14px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lead{color:var(--muted);font-size:1.06rem;margin-top:16px;max-width:32em}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 .98rem var(--font-body);text-decoration:none;padding:14px 20px;border-radius:var(--r);border:1px solid transparent;cursor:pointer;transition:background-color .15s ease, border-color .15s ease}
+.btn-sun{background:var(--accent);color:var(--accent-ink)}
+.btn-sun:hover{background:#621829}
+.btn-wa{background:var(--bg);color:var(--ink);border-color:var(--line)}
+.btn-wa svg{color:var(--wa)}
+.btn-wa:hover{border-color:var(--ink)}
+.phone-line{margin-top:16px;color:var(--muted);font-size:.92rem}
+.phone-line a{color:var(--ink);font-weight:600;text-decoration:none;font-variant-numeric:tabular-nums;border-bottom:1px solid var(--line)}
+.phone-line.alt{margin-top:6px}
+.phone-line.alt a{color:var(--accent);border-bottom-color:currentColor}
+.final .phone-line.alt{margin-top:16px}
+.mbar .btn svg{width:18px;height:18px}
+
+/* Video */
+.video{position:relative;aspect-ratio:4/5;width:100%;max-width:min(100%,400px);justify-self:center;object-fit:cover;border-radius:12px;overflow:hidden;background:#2A2325;display:grid;place-items:center;text-align:center;color:#FFFFFF}
+.video .play{width:64px;height:64px;border-radius:50%;background:#FFFFFF;display:grid;place-items:center;margin:0 auto 14px}
+.video .play svg{fill:var(--ink)}
+.video p{font-weight:500;font-size:1rem;padding-inline:20px}
+.video span.len{display:block;color:#B9AEB0;font-size:.82rem;font-weight:400;margin-top:4px}
+
+/* Sections */
+section.block{padding-block:64px}
+.eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.block h2{font-size:clamp(1.55rem,3vw,2.05rem);margin-top:10px;font-weight:600}
+.block .intro{color:var(--muted);margin-top:10px;max-width:40em}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:32px;counter-reset:s;list-style:none;padding:0;border-top:1px solid var(--line)}
+.steps li{padding:24px 24px 4px 0;min-width:0}
+.steps li + li{padding-left:24px;border-left:1px solid var(--line)}
+.steps li::before{counter-increment:s;content:"0" counter(s);display:block;color:var(--accent);font:600 .9rem var(--font-body);font-variant-numeric:tabular-nums;margin-bottom:12px;letter-spacing:.04em}
+.steps h3{font-size:1.1rem;font-weight:600}
+.steps p{color:var(--muted);margin-top:6px;font-size:.97rem}
+.time-note{margin-top:28px;color:var(--muted);font-size:.95rem;padding:14px 18px;background:var(--subtle);border-radius:var(--r)}
+.time-note b{color:var(--ink);font-weight:600}
+
+.programs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid var(--line)}
+.prog{padding:22px 20px 0 0;min-width:0}
+.prog + .prog{padding-left:20px;border-left:1px solid var(--line)}
+.prog .big{font:600 1.85rem var(--font-display);font-variant-numeric:tabular-nums;color:var(--ink);letter-spacing:-.02em}
+.prog h3{font-size:1rem;margin-top:6px;font-weight:600;letter-spacing:0}
+.prog p{color:var(--muted);font-size:.92rem;margin-top:4px}
+.fine{color:var(--muted);font-size:.8rem;margin-top:24px}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.split > *{min-width:0}
+.card{background:var(--subtle);border-radius:12px;padding:32px}
+.card .eyebrow{color:var(--accent)}
+.check{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
+.check li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+.check svg{margin-top:4px}
+.check svg path{stroke:var(--accent)}
+.about p{margin-top:12px;color:var(--muted)}
+.about .tag{margin-top:20px;font-weight:600;font-size:1.05rem;color:var(--ink)}
+
+.final{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:48px 28px;text-align:center}
+.final p{color:var(--muted);margin:10px auto 0;max-width:34em}
+.final .ctas{justify-content:center}
+
+footer{border-top:1px solid var(--line);padding-block:32px 110px;color:var(--muted);font-size:.84rem}
+footer .wrap{display:grid;gap:10px}
+footer b{color:var(--ink);font-weight:600}
+footer .social{display:flex;flex-wrap:wrap;gap:16px}
+footer .social a{text-decoration:none;font-weight:500;color:var(--ink)}
+
+/* Sticky mobile bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;display:none;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom,0px));background:var(--bg);border-top:1px solid var(--line);z-index:20}
+.mbar .btn{flex:1;padding:13px 10px;font-size:.94rem}
+
+@media (max-width:880px){
+  .hero{padding-block:20px 44px}
+  .hero-video{max-width:min(100%,290px)}
+  .hero h1{margin-top:10px}
+  .hero-grid{row-gap:18px!important}
+  .hero-grid{grid-template-columns:1fr;grid-template-areas:"text" "video" "actions";row-gap:22px}
+  .hero-actions .ctas{margin-top:0}
+  .hero .lead{margin-top:12px}
+  .steps{grid-template-columns:1fr}
+  .steps li, .steps li + li{padding:20px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .programs{grid-template-columns:1fr 1fr;row-gap:24px}
+  .prog, .prog + .prog{padding:18px 16px 0 0;border-left:0}
+  .split{grid-template-columns:1fr;gap:40px}
+  section.block{padding-block:48px}
+}
+@media (max-width:600px){
+  .mbar{display:flex;transform:translateY(110%);transition:transform .25s ease}
+  .mbar.show{transform:none}
+  .hero .ctas .btn{flex:1 1 100%}
+  footer{padding-bottom:120px}
+}
+@media (max-width:420px){ .programs{grid-template-columns:1fr} }
+@media (prefers-reduced-motion:reduce){ .btn,.mbar{transition:none} }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      <b>Johnny Calderón</b>
+      <small>Loan Officer · NMLS 2467937</small>
+    </div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="btn-es" aria-pressed="true">ES</button>
+      <button type="button" id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <span class="ok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span lang="es">Recibí tu información</span><span lang="en">I got your information</span>
+        </span>
+        <h1>
+          <span lang="es">Ahora veamos <em>cuánta casa</em> puedes comprar.</span>
+          <span lang="en">Now let's see <em>how much home</em> you can buy.</span>
+        </h1>
+        <p class="lead">
+          <span lang="es">Mira este video de 90 segundos y después llámame o escríbeme. Sin compromiso y sin afectar tu crédito.</span>
+          <span lang="en">Watch this 90 second video, then call or message me. No commitment and no impact on your credit.</span>
+        </p>
+      </div>
+      <div class="hero-actions">
+        <div class="ctas">
+          <a class="btn btn-sun" href="tel:+14807403626">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 3.5l2.6.4 1.3 3.9-1.9 1.4a12.5 12.5 0 006.2 6.2l1.4-1.9 3.9 1.3.4 2.6a2 2 0 01-2 2.1A17 17 0 014.5 5.5a2 2 0 012.1-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span><span lang="es">Llámame ahora</span><span lang="en">Call me now</span></span>
+          </a>
+          <a class="btn btn-wa js-wa" href="https://wa.me/14807403626" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.2 2.2 2.2 0 00.1-1.2c0-.1-.2-.2-.5-.3z"/></svg>
+            <span><span lang="es">Escríbeme por WhatsApp</span><span lang="en">Message me on WhatsApp</span></span>
+          </a>
+        </div>
+        <p class="phone-line">
+          <a href="tel:+14807403626">480‑740‑3626</a>
+          <span lang="es">· Si no contesto, te devuelvo la llamada lo antes posible.</span><span lang="en">· If I miss your call, I'll call you back as soon as I can.</span>
+        </p>
+        <p class="phone-line alt">
+          <span lang="es">¿No puedes ahora?</span><span lang="en">Can't talk now?</span>
+          <a href="https://calendly.com/johnnym-calderon/consultation" target="_blank" rel="noopener noreferrer"><span lang="es">Agenda una llamada</span><span lang="en">Book a call</span></a>
+        </p>
+      </div>
+
+      <!-- VIDEO (vertical): cuando tengas el video, reemplaza todo este <div class="video hero-video"> por:
+           <video class="video hero-video" controls playsinline preload="metadata" poster="/assets/video/video-poster.jpg">
+             <source src="/assets/video/video-landing.mp4" type="video/mp4">
+           </video>
+           El marco es 4:5 y recorta un poco arriba y abajo; en pantalla completa se ve el video vertical entero. -->
+      <div class="video hero-video" role="img" aria-label="Video de Johnny">
+        <div>
+          <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></div>
+          <p>
+            <span lang="es">Cómo te ayudo a comprar tu primera casa</span>
+            <span lang="en">How I help you buy your first home</span>
+            <span class="len"><span lang="es">Video de 90 segundos</span><span lang="en">90 second video</span></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">La llamada</span><span lang="en">The call</span></p>
+      <h2><span lang="es">Qué pasa en esos 15 minutos</span><span lang="en">What happens in those 15 minutes</span></h2>
+      <ol class="steps">
+        <li>
+          <h3><span lang="es">Reviso tu situación</span><span lang="en">I review your situation</span></h3>
+          <p><span lang="es">Cómo recibes tu ingreso, tu rango de crédito y cuánto tienes ahorrado. Nada de papeles todavía.</span><span lang="en">How you get paid, your credit range and what you have saved. No paperwork yet.</span></p>
+        </li>
+        <li>
+          <h3><span lang="es">Te doy números reales</span><span lang="en">You get real numbers</span></h3>
+          <p><span lang="es">Un rango de precio, un pago mensual aproximado y el programa que mejor te queda.</span><span lang="en">A price range, an estimated monthly payment and the program that fits you best.</span></p>
+        </li>
+        <li>
+          <h3><span lang="es">Sales con un plan</span><span lang="en">You leave with a plan</span></h3>
+          <p><span lang="es">Si estás listo, arrancamos tu preaprobación. Si no, te digo exactamente qué arreglar y en cuánto tiempo.</span><span lang="en">If you're ready, we start your preapproval. If not, I tell you exactly what to fix and how long it takes.</span></p>
+        </li>
+      </ol>
+      <p class="time-note"><span lang="es"><b>Revisar tus opciones no afecta tu crédito.</b> Solo hacemos una consulta formal cuando tú decides avanzar.</span><span lang="en"><b>Reviewing your options doesn't affect your credit.</b> We only pull credit when you decide to move forward.</span></p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <p class="eyebrow"><span lang="es">Programas en Efinity Mortgage</span><span lang="en">Programs at Efinity Mortgage</span></p>
+      <h2><span lang="es">Comprar casa pide menos de lo que crees</span><span lang="en">Buying a home takes less than you think</span></h2>
+      <div class="programs">
+        <div class="prog">
+          <div class="big">3.5%</div>
+          <h3>FHA</h3>
+          <p><span lang="es">De pago inicial con puntaje de crédito desde 580.</span><span lang="en">Down payment with a credit score from 580.</span></p>
+        </div>
+        <div class="prog">
+          <div class="big">3–5%</div>
+          <h3><span lang="es">Asistencia para el enganche</span><span lang="en">Down payment assistance</span></h3>
+          <p><span lang="es">Del precio de compra, según el programa y el condado.</span><span lang="en">Of the purchase price, depending on program and county.</span></p>
+        </div>
+        <div class="prog">
+          <div class="big">$0</div>
+          <h3>VA</h3>
+          <p><span lang="es">De pago inicial para veteranos y militares elegibles.</span><span lang="en">Down for eligible veterans and service members.</span></p>
+        </div>
+        <div class="prog">
+          <div class="big">ITIN</div>
+          <h3><span lang="es">Sin número de seguro social</span><span lang="en">No Social Security number</span></h3>
+          <p><span lang="es">Opciones con tu ITIN y estados de cuenta bancarios.</span><span lang="en">Options with your ITIN and bank statements.</span></p>
+        </div>
+      </div>
+      <p class="fine"><span lang="es">Sujeto a aprobación de crédito y requisitos de cada programa. Disponible en Arizona y Texas.</span><span lang="en">Subject to credit approval and program guidelines. Available in Arizona and Texas.</span></p>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap split">
+      <div class="card">
+        <p class="eyebrow"><span lang="es">Para la llamada</span><span lang="en">For the call</span></p>
+        <h2 style="font-size:1.5rem"><span lang="es">Ten esto a la mano</span><span lang="en">Have this handy</span></h2>
+        <ul class="check">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="var(--wa)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span lang="es">Cuánto ganas al mes, más o menos</span><span lang="en">Roughly how much you earn per month</span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="var(--wa)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span lang="es">Tus pagos mensuales: carro, tarjetas, préstamos</span><span lang="en">Your monthly payments: car, cards, loans</span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="var(--wa)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span lang="es">Cuánto tienes ahorrado para comprar</span><span lang="en">How much you have saved to buy</span></span></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12.5l4.2 4.2L19 7" stroke="var(--wa)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><span lang="es">La zona donde te gustaría vivir</span><span lang="en">The area where you'd like to live</span></span></li>
+        </ul>
+      </div>
+      <div class="about">
+        <p class="eyebrow"><span lang="es">Quién te va a llamar</span><span lang="en">Who's calling you</span></p>
+        <h2 style="font-size:1.5rem;margin-top:8px">Johnny Calderón</h2>
+        <p><span lang="es">Soy loan officer en Efinity Mortgage, con licencia en Arizona y Texas. Trabajo sobre todo con personas que compran su primera casa, y te explico cada paso en español, claro y sin rodeos.</span><span lang="en">I'm a loan officer at Efinity Mortgage, licensed in Arizona and Texas. I work mostly with first time buyers, and I walk you through every step in plain English or Spanish.</span></p>
+        <p><span lang="es">Mi trabajo no es venderte un préstamo. Es que entiendas tus números y tomes una buena decisión, hoy o cuando estés listo.</span><span lang="en">My job isn't to sell you a loan. It's to help you understand your numbers and make a good decision, today or when you're ready.</span></p>
+        <p class="tag"><span lang="es">El camino a tu casa, sin rodeos.</span><span lang="en">Your home, my commitment.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="final">
+        <h2><span lang="es">Son 15 minutos. Llámame hoy.</span><span lang="en">It's 15 minutes. Call me today.</span></h2>
+        <p><span lang="es">Llámame directo o escríbeme por WhatsApp. Si prefieres otro momento, agenda la llamada en el día y la hora que te queden mejor.</span><span lang="en">Call me directly or message me on WhatsApp. If another time works better, book the call for the day and time you prefer.</span></p>
+        <div class="ctas">
+          <a class="btn btn-sun" href="tel:+14807403626"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 3.5l2.6.4 1.3 3.9-1.9 1.4a12.5 12.5 0 006.2 6.2l1.4-1.9 3.9 1.3.4 2.6a2 2 0 01-2 2.1A17 17 0 014.5 5.5a2 2 0 012.1-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span lang="es">Llámame ahora</span><span lang="en">Call me now</span></a>
+          <a class="btn btn-wa js-wa" href="https://wa.me/14807403626" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+        <p class="phone-line alt"><a href="https://calendly.com/johnnym-calderon/consultation" target="_blank" rel="noopener noreferrer"><span lang="es">O agenda una llamada</span><span lang="en">Or book a call</span></a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>Johnny Calderón</b> · Loan Officer · NMLS 2467937 · <span lang="es">Licenciado en Arizona y Texas</span><span lang="en">Licensed in Arizona and Texas</span></p>
+    <p>Efinity Mortgage LLC · NMLS 1043983 · 1018 W. Roosevelt St., Phoenix, AZ · 480‑740‑3626 · johnny.calderon@efinitymortgage.com</p>
+    <p class="social">
+      <a href="https://instagram.com/jcloanofficer" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://tiktok.com/@jcloanofficer" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://facebook.com/jcloanofficer" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://youtube.com/@jcloanofficer" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://jcloanofficer.com" target="_blank" rel="noopener noreferrer">jcloanofficer.com</a>
+    </p>
+    <p><span lang="es">Igualdad de Oportunidades en la Vivienda. Esto no es una oferta ni un compromiso de préstamo. Todos los préstamos están sujetos a aprobación de crédito, verificación y requisitos del programa. Las tasas y los términos pueden cambiar sin aviso.</span><span lang="en">Equal Housing Opportunity. This is not an offer or commitment to lend. All loans are subject to credit approval, verification and program guidelines. Rates and terms are subject to change without notice.</span></p>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-sun" href="tel:+14807403626"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 3.5l2.6.4 1.3 3.9-1.9 1.4a12.5 12.5 0 006.2 6.2l1.4-1.9 3.9 1.3.4 2.6a2 2 0 01-2 2.1A17 17 0 014.5 5.5a2 2 0 012.1-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span lang="es">Llamar</span><span lang="en">Call</span></a>
+  <a class="btn btn-wa js-wa" href="https://wa.me/14807403626" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  var msg = {
+    es: "Hola Johnny, llené la forma del anuncio y quiero saber cuánto puedo calificar para comprar casa.",
+    en: "Hi Johnny, I filled out the form from your ad and I'd like to know how much I can qualify for."
+  };
+  var bes = document.getElementById("btn-es"), ben = document.getElementById("btn-en");
+  function setLang(l){
+    document.body.classList.toggle("en", l === "en");
+    document.documentElement.lang = l;
+    bes.setAttribute("aria-pressed", l === "es"); ben.setAttribute("aria-pressed", l === "en");
+    document.querySelectorAll(".js-wa").forEach(function(a){
+      a.href = "https://wa.me/14807403626?text=" + encodeURIComponent(msg[l]);
+    });
+    try { localStorage.setItem("jc-lang", l); } catch(e){}
+  }
+  bes.addEventListener("click", function(){ setLang("es"); });
+  ben.addEventListener("click", function(){ setLang("en"); });
+  var start = "es";
+  var q = "";
+  try { q = new URLSearchParams(location.search).get("lang") || ""; } catch(e){}
+  if (location.hash === "#en" || q === "en") start = "en";
+  else if (location.hash !== "#es" && q !== "es") { try { start = localStorage.getItem("jc-lang") || "es"; } catch(e){} }
+  setLang(start);
+  var bar=document.querySelector(".mbar"), acts=document.querySelector(".hero-actions");
+  if (bar && acts && "IntersectionObserver" in window){
+    new IntersectionObserver(function(e){ bar.classList.toggle("show", !e[0].isIntersecting && e[0].boundingClientRect.top < 0); }).observe(acts);
+  } else if (bar) { bar.classList.add("show"); }
+})();
+</script>
+
+</body>
+</html>
