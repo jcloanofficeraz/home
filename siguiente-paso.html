@@ -82,6 +82,7 @@ p{margin:0}
 
 /* Video */
 .video{position:relative;aspect-ratio:4/5;width:100%;max-width:min(100%,400px);justify-self:center;object-fit:cover;border-radius:12px;overflow:hidden;background:#2A2325;display:grid;place-items:center;text-align:center;color:#FFFFFF}
+video.video{object-fit:cover;object-position:50% 90%;background:#2A2325}
 .video .play{width:64px;height:64px;border-radius:50%;background:#FFFFFF;display:grid;place-items:center;margin:0 auto 14px}
 .video .play svg{fill:var(--ink)}
 .video p{font-weight:500;font-size:1rem;padding-inline:20px}
@@ -193,8 +194,8 @@ footer .eho img{display:block;width:76px;height:auto}
           <span lang="en">Now let's see <em>how much home</em> you can buy.</span>
         </h1>
         <p class="lead">
-          <span lang="es">Mira este video de 90 segundos y después llámame o escríbeme. Sin compromiso y sin afectar tu crédito.</span>
-          <span lang="en">Watch this 90 second video, then call or message me. No commitment and no impact on your credit.</span>
+          <span lang="es">Mira este video corto y después llámame o escríbeme. Sin compromiso y sin afectar tu crédito.</span>
+          <span lang="en">Watch this short video, then call or message me. No commitment and no impact on your credit.</span>
         </p>
       </div>
       <div class="hero-actions">
@@ -218,18 +219,20 @@ footer .eho img{display:block;width:76px;height:auto}
         </p>
       </div>
 
-      <!-- VIDEO (vertical): cuando tengas el video, reemplaza todo este <div class="video hero-video"> por:
-           <video class="video hero-video" controls playsinline preload="metadata" poster="/assets/video/video-poster.jpg">
-             <source src="/assets/video/video-landing.mp4" type="video/mp4">
-           </video>
-           El marco es 4:5 y recorta un poco arriba y abajo; en pantalla completa se ve el video vertical entero. -->
-      <div class="video hero-video" role="img" aria-label="Video de Johnny">
+      <!-- VIDEO (vertical 9:16). Archivos en /assets/video/:
+           video-es.mp4 + poster-es.jpg (español), video-en.mp4 + poster-en.jpg (inglés).
+           El video cambia solo según el idioma. Si un archivo falta, se muestra el recuadro "Video próximamente". -->
+      <video class="video hero-video" id="lp-video" controls playsinline preload="metadata"
+             data-src-es="assets/video/video-es.mp4" data-poster-es="assets/video/poster-es.jpg"
+             data-src-en="assets/video/video-en.mp4" data-poster-en="assets/video/poster-en.jpg"
+             aria-label="Video de Johnny Calderón"></video>
+      <div class="video hero-video" id="lp-video-ph" role="img" aria-label="Video de Johnny" hidden>
         <div>
           <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></div>
           <p>
             <span lang="es">Cómo te ayudo a comprar tu primera casa</span>
             <span lang="en">How I help you buy your first home</span>
-            <span class="len"><span lang="es">Video de 90 segundos</span><span lang="en">90 second video</span></span>
+            <span class="len"><span lang="es">Video próximamente</span><span lang="en">Video coming soon</span></span>
           </p>
         </div>
       </div>
@@ -367,6 +370,19 @@ footer .eho img{display:block;width:76px;height:auto}
       a.href = "https://wa.me/14807403626?text=" + encodeURIComponent(msg[l]);
     });
     try { localStorage.setItem("jc-lang", l); } catch(e){}
+    setVideo(l);
+  }
+  var vid = document.getElementById("lp-video"), ph = document.getElementById("lp-video-ph");
+  function showPh(){ vid.hidden = true; ph.hidden = false; }
+  vid.addEventListener("error", showPh);
+  function setVideo(l){
+    var src = vid.getAttribute("data-src-" + l), poster = vid.getAttribute("data-poster-" + l);
+    if (vid.getAttribute("src") === src) return;
+    vid.pause();
+    vid.hidden = false; ph.hidden = true;
+    vid.setAttribute("poster", poster);
+    vid.setAttribute("src", src);
+    vid.load();
   }
   bes.addEventListener("click", function(){ setLang("es"); });
   ben.addEventListener("click", function(){ setLang("en"); });
